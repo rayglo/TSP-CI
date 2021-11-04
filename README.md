@@ -24,3 +24,12 @@ not terminate, since the temperature is never decreased. For this reason I've ad
 value in order not to limit the algorithm in finding the solution and have an early termination.
 
 The best solution is stored in any case, so that even if the final solution is a worsening one, the best found that far is still preserved.
+
+> ⚠️WARNING: Actual parameters in the algorithm are calibrated for finding a very good solution but it needs some time
+>(~12 min for 42 cities). If a faster but a bit worse solution is desired, one or more of the following solutions may be used:
+>- Removing Indentation at line 131, which will decrease temperature at every cycle
+>- Decrease the steady_state parameter
+>- Decrease the start_temperature parameter
+>- Increase the decrease_rate parameter
+>
+>Using aggressively these solutions may eventually lead to a "not so nice solution"
