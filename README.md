@@ -14,20 +14,13 @@ p = exp(-(S'-S)/t)
 ```
 
 Where S is the cost of the actual solution, S' is the cost of the new solution and t
-is the temperature. As iterations go on, temperature decreases with a fixed decrease rate.
+is the temperature. At every step temperature decreases with a fixed decrease rate.
 Iterations stop when a fixed final temeprature is reached.
-
-Temperature is decreased only when a mutation is applied, else
-it would remain the same. Even if it is a variation from the original algorithm, I found to have better results, since it tries
-to give more solution instead of staying on the same solution. This comes with a drawback: if the optimal solution is found, the algorithm may
-not terminate, since the temperature is never decreased. For this reason I've added a steady state detection mechanism, that must be set to an high
-value in order not to limit the algorithm in finding the solution and have an early termination.
 
 The best solution is stored in any case, so that even if the final solution is a worsening one, the best found that far is still preserved.
 
 > ⚠️WARNING: Actual parameters in the algorithm are calibrated for finding a very good solution but it needs some time
->(~12 min for 42 cities). If a faster but a bit worse solution is desired, one or more of the following solutions may be used:
->- Removing Indentation at line 131, which will decrease temperature at every cycle
+>(~3 min for 42 cities). If a faster but a bit worse solution is desired, one or more of the following solutions may be used:
 >- Decrease the steady_state parameter
 >- Decrease the start_temperature parameter
 >- Increase the decrease_rate parameter
